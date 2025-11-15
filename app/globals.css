@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* --- Temel renkler --- */
+:root {
+  --color-background: #F9F6F2;
+  --color-foreground: #2D2D2D;
+  --color-primary: #B39B4C;
+  --color-secondary: #FFFFFF;
+  --color-accent: #D4AF7F;
+  --color-muted: #7A6A5B;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    --color-primary: #B39B4C;
+    --color-secondary: #1a1a1a;
+    --color-accent: #D4AF7F;
+    --color-muted: #b0b0b0;
+  }
+}
+
+/* --- Font ayarları --- */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* --- Global link ve buton stilleri --- */
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--color-primary);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+button:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* --- Container ve responsive düzen --- */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* --- Kart ve ürün görünümleri --- */
+.card {
+  background-color: var(--color-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Header ve Navbar --- */
+header {
+  background-color: var(--color-background);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--color-secondary);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* --- Responsive ayarlar --- */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
