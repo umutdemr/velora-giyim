@@ -21,7 +21,9 @@ export default function Hero() {
           className="text-white text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight"
         >
           2025 Koleksiyonu <br />
-          <span className="font-semibold text-[#f6d9c6]">Zarafetin Yeni Dönemi</span>
+          <span className="font-semibold text-[#f6d9c6]">
+            Zarafetin Yeni Dönemi
+          </span>
         </motion.h1>
 
         <motion.div

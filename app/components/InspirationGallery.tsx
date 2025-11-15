@@ -44,11 +44,9 @@ export default function InspirationGallery() {
         </motion.h2>
 
         <p className="text-gray-600 max-w-2xl mx-auto mb-16 leading-relaxed">
-          Yeni sezonun en göz alıcı kombinlerini keşfet.  
-          Modanın zarif dokunuşlarıyla kendi tarzını yarat.
+          Yeni sezonun en göz alıcı kombinlerini keşfet. Modanın zarif
+          dokunuşlarıyla kendi tarzını yarat.
         </p>
-
-        {/* Ürün kartları */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {inspirations.map((item) => (
             <motion.div
@@ -58,7 +56,6 @@ export default function InspirationGallery() {
               transition={{ duration: 0.5, delay: item.id * 0.1 }}
               className="relative group overflow-hidden rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] bg-white"
             >
-              {/* Daha uzun ve net görsel oranı */}
               <div className="relative w-full h-[480px]">
                 <Image
                   src={item.img}
@@ -67,11 +64,7 @@ export default function InspirationGallery() {
                   className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
               </div>
-
-              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Kart içeriği */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-5 opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <h3 className="text-2xl font-semibold mb-2 drop-shadow-md">
                   {item.title}

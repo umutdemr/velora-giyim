@@ -1,30 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { Menu, X, Search, User, ShoppingBag } from "lucide-react";
 
-type Props = {
-  cartCount?: number;
-};
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
-export default function Navbar({ cartCount = 0 }: Props) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
-  const leftMenuItems = [
-    {
-      title: "Koleksiyonlar",
-      sub: [
-        { name: "Sonbahar Favorileri", path: "/collections/fall" },
-        { name: "Yeni Sezon", path: "/collections/new" },
-        { name: "Denim", path: "/collections/denim" },
-        { name: "Trend Parçalar", path: "/collections/trends" },
-        { name: "Ofis Giyim", path: "/collections/office" },
-      ],
-    },
+  const categories = [
     {
       title: "Üst Giyim",
-      sub: [
+      items: [
         { name: "Abiye", path: "/ustgiyim/abiye" },
         { name: "Elbise", path: "/ustgiyim/elbiseler" },
         { name: "Bluz", path: "/ustgiyim/bluz" },
@@ -41,7 +34,7 @@ export default function Navbar({ cartCount = 0 }: Props) {
     },
     {
       title: "Alt Giyim",
-      sub: [
+      items: [
         { name: "Etek", path: "/altgiyim/etek" },
         { name: "Jeans Pantolon", path: "/altgiyim/jeans" },
         { name: "Pantolon", path: "/altgiyim/pantolon" },
@@ -51,12 +44,9 @@ export default function Navbar({ cartCount = 0 }: Props) {
         { name: "Tayt", path: "/altgiyim/tayt" },
       ],
     },
-  ];
-
-  const rightMenuItems = [
     {
       title: "Dış Giyim",
-      sub: [
+      items: [
         { name: "Ceket", path: "/disgiyim/ceket" },
         { name: "Mont", path: "/disgiyim/mont" },
         { name: "Kaban", path: "/disgiyim/kaban" },
@@ -66,133 +56,88 @@ export default function Navbar({ cartCount = 0 }: Props) {
     },
     {
       title: "Kadın Takım",
-      sub: [
+      items: [
         { name: "İkili Takım", path: "/takim/ikili-takim" },
         { name: "Eşofman Takımı", path: "/takim/esofman-takimi" },
         { name: "İç Çamaşırı Takım", path: "/takim/ic-takim" },
         { name: "Pijama Takımı", path: "/takim/pijama-takimi" },
       ],
     },
-    {
-      title: "Koleksiyonlar",
-      sub: [
-        { name: "Lüks Serisi", path: "/collections/lux" },
-        { name: "Kapsül Koleksiyon", path: "/collections/kapsul" },
-        { name: "Premium Line", path: "/collections/premium" },
-      ],
-    },
   ];
 
   return (
-    <header className="w-full bg-white/70 dark:bg-[#0a0a0a]/70 backdrop-blur-md shadow-sm fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/* Left Menu */}
-        <nav className="hidden md:flex gap-10 text-[15px] font-medium text-gray-800 dark:text-gray-200 uppercase tracking-wide">
-          {leftMenuItems.map((item) => (
-            <div key={item.title} className="relative group">
-              <button
-                className="relative pb-1 bg-transparent border-none outline-none text-inherit cursor-pointer hover:text-[#B39B4C] transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#B39B4C] group-hover:after:w-full after:transition-all after:duration-300"
-                style={{ backgroundColor: "transparent", boxShadow: "none", color: "#000000" }}
-              >
-                {item.title}
-              </button>
-
-              {/* Dropdown */}
-              <div className="absolute left-0 top-full mt-3 w-[220px] bg-white dark:bg-[#1a1a1a] rounded-xl shadow-lg border border-gray-200/30 dark:border-gray-700/30 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out">
-                <ul className="flex flex-col py-3 px-2">
-                  {item.sub.map((sub) => (
-                    <li key={sub.name}>
-                      <Link
-                        href={sub.path}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#B39B4C] transition-colors duration-200"
-                      >
-                        {sub.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </nav>
-
-        {/* Logo */}
-        <Link href="/" className="text-3xl font-extrabold text-[#B39B4C] tracking-widest">
-          VELORA
-        </Link>
-
-        {/* Right Menu */}
-        <nav className="hidden md:flex gap-10 text-[15px] font-medium text-gray-800 dark:text-gray-200 uppercase tracking-wide">
-          {rightMenuItems.map((item) => (
-            <div key={item.title} className="relative group">
-              <button
-                className="relative pb-1 bg-transparent border-none outline-none text-inherit cursor-pointer hover:text-[#B39B4C] transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#B39B4C] group-hover:after:w-full after:transition-all after:duration-300"
-                style={{ backgroundColor: "transparent", boxShadow: "none", color: "#000000" }}
-              >
-                {item.title}
-              </button>
-
-              {/* Dropdown */}
-              <div className="absolute right-0 top-full mt-3 w-[220px] bg-white dark:bg-[#1a1a1a] rounded-xl shadow-lg border border-gray-200/30 dark:border-gray-700/30 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out">
-                <ul className="flex flex-col py-3 px-2">
-                  {item.sub.map((sub) => (
-                    <li key={sub.name}>
-                      <Link
-                        href={sub.path}
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#B39B4C] transition-colors duration-200"
-                      >
-                        {sub.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-1 bg-transparent border-none">
-            {menuOpen ? (
-              <X className="w-6 h-6 text-gray-700 dark:text-gray-200" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-700 dark:text-gray-200" />
-            )}
+    <>
+      <header className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-[68px] flex items-center justify-between">
+          <button
+            onClick={() => setOpen(true)}
+            className="p-2 rounded-md hover:bg-gray-100"
+          >
+            <Menu className="w-6 h-6" />
           </button>
-          <Link href="/cart" className="relative p-1 bg-transparent border-none">
-            <ShoppingBag className="w-6 h-6 text-gray-700 dark:text-gray-200" />
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 text-[11px] bg-rose-600 text-white rounded-full px-2">
-                {cartCount}
+          <div className="flex-1 flex justify-center">
+            <Link
+              href="/"
+              className="font-serif text-2xl sm:text-3xl tracking-widest"
+            >
+              VELORA
+            </Link>
+          </div>
+          <div className="flex gap-4 items-center">
+            <Search className="w-5 h-5" />
+            <User className="w-5 h-5" />
+            <Link href="/cart" className="relative">
+              <ShoppingBag className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] px-1 rounded-full">
+                0
               </span>
-            )}
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-[#0a0a0a] py-6 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center gap-3">
-          {[...leftMenuItems, ...rightMenuItems].map((item) => (
-            <details key={item.title} className="w-full px-6">
-              <summary className="uppercase text-gray-700 dark:text-gray-200 font-semibold cursor-pointer hover:text-[#B39B4C]">
-                {item.title}
-              </summary>
-              <ul className="mt-2 pl-3 text-sm text-gray-600 dark:text-gray-400">
-                {item.sub.map((sub) => (
-                  <li key={sub.name}>
-                    <Link href={sub.path} className="block py-1 hover:text-[#B39B4C]">
-                      {sub.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ))}
+      {open && (
+        <div className="fixed inset-0 z-[9999] flex">
+          <div
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 bg-black/40"
+          />
+
+          <aside
+            className="relative bg-white w-[85%] sm:w-[60%] md:w-[45%] h-full shadow-xl p-5 overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-md mb-4"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {categories.map((cat) => (
+              <div key={cat.title} className="mb-6">
+                <h3 className="text-sm font-semibold tracking-widest mb-3">
+                  {cat.title}
+                </h3>
+
+                <ul className="space-y-2">
+                  {cat.items.map((sub) => (
+                    <li key={sub.path}>
+                      <Link
+                        href={sub.path}
+                        onClick={() => setOpen(false)}
+                        className="block py-2 text-[15px] text-gray-800 hover:text-[#B39B4C]"
+                      >
+                        {sub.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </aside>
         </div>
       )}
-    </header>
+    </>
   );
 }

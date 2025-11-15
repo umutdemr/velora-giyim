@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 type Product = {
   id: number;
@@ -9,20 +9,55 @@ type Product = {
   image: string;
 };
 
-export default function UstGiyimPage({ params }: { params: { slug: string } }) {
-  // 🔸 Ürün verilerini slug’a göre dinamik tanımlıyoruz
+export default function UstGiyimPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = React.use(params);
+
   const productsData: Record<string, Product[]> = {
     ceket: [
-      { id: 1, name: "Siyah Blazer Ceket", price: "₺1299", image: "/images/ust2.png" },
-      { id: 2, name: "Krem Renk Oversize Ceket", price: "₺1199", image: "/images/ust1.png" },
+      {
+        id: 1,
+        name: "Siyah Blazer Ceket",
+        price: "₺1299",
+        image: "/images/ust2.png",
+      },
+      {
+        id: 2,
+        name: "Krem Renk Oversize Ceket",
+        price: "₺1199",
+        image: "/images/ust1.png",
+      },
     ],
     kazak: [
-      { id: 1, name: "Crop Triko Kazak", price: "₺649", image: "/images/ust3.png" },
-      { id: 2, name: "Boğazlı Yün Kazak", price: "₺799", image: "/images/5.png" },
+      {
+        id: 1,
+        name: "Crop Triko Kazak",
+        price: "₺649",
+        image: "/images/ust3.png",
+      },
+      {
+        id: 2,
+        name: "Boğazlı Yün Kazak",
+        price: "₺799",
+        image: "/images/5.png",
+      },
     ],
     gomlek: [
-      { id: 1, name: "Klasik Beyaz Gömlek", price: "₺799", image: "/images/ust1.png" },
-      { id: 2, name: "Saten Düğmeli Gömlek", price: "₺899", image: "/images/6.png" },
+      {
+        id: 1,
+        name: "Klasik Beyaz Gömlek",
+        price: "₺799",
+        image: "/images/ust1.png",
+      },
+      {
+        id: 2,
+        name: "Saten Düğmeli Gömlek",
+        price: "₺899",
+        image: "/images/6.png",
+      },
     ],
   };
 
@@ -33,14 +68,17 @@ export default function UstGiyimPage({ params }: { params: { slug: string } }) {
   };
 
   const descriptions: Record<string, string> = {
-    ceket: "Zarif ve güçlü duruşun için özel olarak tasarlanan ceket modellerimizi keşfet.",
-    kazak: "Soğuk günlerde sıcak tutan ve stilini tamamlayan kazak seçenekleri burada.",
-    gomlek: "Klasik ve modern çizgilerle öne çıkan gömlek koleksiyonumuzla tarzını yansıt.",
+    ceket:
+      "Zarif ve güçlü duruşun için özel olarak tasarlanan ceket modellerimizi keşfet.",
+    kazak:
+      "Soğuk günlerde sıcak tutan ve stilini tamamlayan kazak seçenekleri burada.",
+    gomlek:
+      "Klasik ve modern çizgilerle öne çıkan gömlek koleksiyonumuzla tarzını yansıt.",
   };
 
-  const products = useMemo(() => productsData[params.slug] || [], [params.slug]);
-  const title = titles[params.slug] || "Üst Giyim Koleksiyonu 👕";
-  const description = descriptions[params.slug] || "";
+  const products = useMemo(() => productsData[slug] || [], [slug]);
+  const title = titles[slug] || "Üst Giyim Koleksiyonu 👕";
+  const description = descriptions[slug] || "";
 
   return (
     <main className="pt-28 px-8 min-h-screen bg-[#fefcfb] text-gray-900">
@@ -48,6 +86,7 @@ export default function UstGiyimPage({ params }: { params: { slug: string } }) {
         <h1 className="text-4xl font-semibold mb-4 text-center text-[#B39B4C] tracking-wide">
           {title}
         </h1>
+
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
           {description}
         </p>
@@ -66,6 +105,7 @@ export default function UstGiyimPage({ params }: { params: { slug: string } }) {
                     className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
+
                 <div className="p-5 text-center">
                   <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
                   <p className="text-[#B39B4C] font-medium">{product.price}</p>

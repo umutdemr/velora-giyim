@@ -4,15 +4,14 @@ import { Instagram, Facebook, Twitter } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-[#f8f3ef] via-[#f4e9da] to-[#e8dbc6] text-gray-800 mt-24">
-      {/* Üst Abonelik Alanı */}
       <div className="max-w-7xl mx-auto px-6 py-12 text-center border-b border-white/40">
         <h2 className="text-3xl font-semibold text-gray-900 mb-3 tracking-wide">
           Velora Butik
         </h2>
         <p className="text-gray-700 max-w-xl mx-auto mb-6 leading-relaxed">
-          Yeni sezon koleksiyonlarından ilk sen haberdar ol. Fırsatları kaçırma! 💌
+          Yeni sezon koleksiyonlarından ilk sen haberdar ol. Fırsatları kaçırma!
+          💌
         </p>
-
         <div className="flex justify-center max-w-md mx-auto">
           <input
             type="email"
@@ -25,47 +24,46 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Alt Grid Bölümü */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
-        {/* Marka Hakkında */}
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
             Hakkımızda
           </h3>
           <p className="text-gray-700 text-sm leading-relaxed">
-            Velora Butik, zarafet ve modern tarzın birleştiği özel koleksiyonlarıyla
-            modayı yeniden tanımlar. Her parça, özgün bir hikaye anlatır.
+            Velora Butik, zarafet ve modern tarzın birleştiği özel
+            koleksiyonlarıyla modayı yeniden tanımlar. Her parça, özgün bir
+            hikaye anlatır.
           </p>
-        </div>
 
-        {/* Kategoriler */}
-        <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
-            Koleksiyonlar
-          </h3>
-          <ul className="space-y-2 text-gray-700 text-sm">
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Elbiseler</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Tops</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Alt Giyim</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Aksesuarlar</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Yeni Sezon</a></li>
-          </ul>
         </div>
-
-        {/* Yardım Alanı */}
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
             Yardım
           </h3>
           <ul className="space-y-2 text-gray-700 text-sm">
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">S.S.S</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Kargo & Teslimat</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">İade Politikası</a></li>
-            <li><a href="#" className="hover:text-[#b89b5e] transition-colors">Gizlilik Politikası</a></li>
+            <li>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">
+                S.S.S
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">
+                Kargo & Teslimat
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">
+                İade Politikası
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">
+                Gizlilik Politikası
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* İletişim & Sosyal Medya */}
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
             İletişim
@@ -99,9 +97,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Telif Hakkı */}
       <div className="bg-[#e8dbc6]/60 py-6 text-center text-sm text-gray-700 border-t border-white/30">
-        © {new Date().getFullYear()} <span className="font-semibold text-gray-900">Velora Butik</span> — Zarafetin Yeni Adı.
+        © {new Date().getFullYear()}{" "}
+        <span className="font-semibold text-gray-900">Velora Butik</span> —
+        Zarafetin Yeni Adı.
       </div>
     </footer>
   );
