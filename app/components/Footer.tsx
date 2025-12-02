@@ -1,5 +1,5 @@
 "use client";
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,9 +9,9 @@ export default function Footer() {
           Velora Butik
         </h2>
         <p className="text-gray-700 max-w-xl mx-auto mb-6 leading-relaxed">
-          Yeni sezon koleksiyonlarından ilk sen haberdar ol. Fırsatları kaçırma!
-          💌
+          Yeni sezon koleksiyonlarından ilk sen haberdar ol. Fırsatları kaçırma! 💌
         </p>
+
         <div className="flex justify-center max-w-md mx-auto">
           <input
             type="email"
@@ -24,83 +24,78 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+      <div className="
+        max-w-7xl mx-auto px-6 py-16 
+        grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12
+        text-center sm:text-left
+      ">
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3 inline-block">
             Hakkımızda
           </h3>
           <p className="text-gray-700 text-sm leading-relaxed">
-            Velora Butik, zarafet ve modern tarzın birleştiği özel
-            koleksiyonlarıyla modayı yeniden tanımlar. Her parça, özgün bir
-            hikaye anlatır.
+            Velora Butik, zarafet ve modern tarzın buluştuğu,
+            özgün koleksiyonlarıyla modayı yeniden tanımlar.
           </p>
-
         </div>
+
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3 inline-block">
             Yardım
           </h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>
-              <a href="#" className="hover:text-[#b89b5e] transition-colors">
-                S.S.S
-              </a>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">S.S.S</a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#b89b5e] transition-colors">
-                Kargo & Teslimat
-              </a>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">Kargo & Teslimat</a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#b89b5e] transition-colors">
-                İade Politikası
-              </a>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">İade Politikası</a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#b89b5e] transition-colors">
-                Gizlilik Politikası
-              </a>
+              <a href="#" className="hover:text-[#b89b5e] transition-colors">Gizlilik Politikası</a>
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4 tracking-wide border-l-4 border-[#b89b5e] pl-3 inline-block">
             İletişim
           </h3>
           <ul className="space-y-2 text-gray-700 text-sm mb-6">
-            <li>info@velorabutik.com</li>
-            <li>+90 555 123 45 67</li>
+            <li>velorakadingiyimm@gmail.com</li>
+            <li>+90 542 713 97 14</li>
             <li>İstanbul, Türkiye</li>
           </ul>
 
-          <div className="flex space-x-6">
+          <div className="flex justify-center sm:justify-start space-x-6">
             <a
-              href="#"
+              href="https://www.instagram.com/velora__giyim/"
+              target="_blank"
               className="text-gray-700 hover:text-[#b89b5e] transition-transform transform hover:scale-110"
             >
-              <Instagram size={22} />
+              <Instagram size={24} />
             </a>
             <a
-              href="#"
-              className="text-gray-700 hover:text-[#b89b5e] transition-transform transform hover:scale-110"
+              href="https://wa.me/905427139714?text=Merhaba%20Velora%20Butik%2C%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+              target="_blank"
+              className="text-gray-700 hover:text-[#25D366] transition-transform transform hover:scale-110"
             >
-              <Facebook size={22} />
+              <MessageCircle size={24} />
             </a>
             <a
-              href="#"
-              className="text-gray-700 hover:text-[#b89b5e] transition-transform transform hover:scale-110"
+              href="mailto:velorakadingiyimm@gmail.com"
+              className="text-gray-700 hover:text-red-500 transition-transform transform hover:scale-110"
             >
-              <Twitter size={22} />
+              <Mail size={24} />
             </a>
           </div>
         </div>
       </div>
-
       <div className="bg-[#e8dbc6]/60 py-6 text-center text-sm text-gray-700 border-t border-white/30">
         © {new Date().getFullYear()}{" "}
-        <span className="font-semibold text-gray-900">Velora Butik</span> —
-        Zarafetin Yeni Adı.
+        <span className="font-semibold text-gray-900">Velora Butik</span> — Zarafetin Yeni Adı.
       </div>
     </footer>
   );
